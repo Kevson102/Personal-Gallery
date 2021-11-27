@@ -24,3 +24,19 @@ class CategoryTestCase(TestCase):
     categories = Category.objects.all()
     self.assertTrue(len(categories)==0)
     
+  # Test Update Category Method
+  def test_update_method(self):
+    self.new_category.save_category()
+    self.new_category.update_category(1)
+    updated_category = Category.objects.filter(id = 1)
+    self.assertTrue(self.new_category.category == 'Travel')
+    
+    
+class LocationTestCase(TestCase):
+  # Set up method
+  def setUp(self):
+    self.new_location = Location(location_name = 'Aboretum', country = 'Kenya', region = 'East Africa')
+    
+  # Test instace
+  def test_instance(self):
+    self.assertTrue(isinstance(self.new_location, Location))

@@ -19,6 +19,10 @@ class Category(models.Model):
   # Delete method
   def delete_category(self):
     self.delete()
+    
+  # Update method
+  def update_category(self, var):
+    Category.objects.filter(id = var).update(category = "Food")
   
 class Image(models.Model):
   image = models.ImageField(upload_to = 'static/images/', blank=True)
