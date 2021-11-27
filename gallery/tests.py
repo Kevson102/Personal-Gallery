@@ -120,5 +120,22 @@ class ImageTestCase(TestCase):
     self.image = Image(1, 'image location', 'hiking', 'hiking mount everest', self.new_location.id, self.new_category.id)
     self.image.save()
     
-    images_found_for_location = Image.search_by_category(self.image.category)
+    images_found_for_category = Image.search_by_category(self.image.category)
+    self.assertTrue(len(images_found_for_category)>0)
+    
+  # Test filter by location
+  def test_filter_by_location(self):
+    # Create and save a category instance for the test
+    self.new_category = Category(category = 'Travel')
+    self.new_category.save_category()
+    
+    # Create and save a location instance
+    self.new_location = Location(location_name = 'Aboretum', country = 'Kenya', region = 'East Africa')
+    self.new_location.save_location()
+    
+    # Create and save an image instance
+    self.image = Image(1, 'image location', 'hiking', 'hiking mount everest', self.new_location.id, self.new_category.id)
+    self.image.save()
+    
+    images_found_for_location = Image.filter_by_location(self.image.location)
     self.assertTrue(len(images_found_for_location)>0)
