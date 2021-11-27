@@ -70,3 +70,9 @@ class Image(models.Model):
   def get_image_by_id(cls, id):
     searched_image = Image.objects.filter(id = id).all()
     return searched_image
+  
+  # Search image by category
+  @classmethod
+  def search_by_category(cls, search_phrase):
+    found_images = cls.objects.filter(category=search_phrase)
+    return found_images

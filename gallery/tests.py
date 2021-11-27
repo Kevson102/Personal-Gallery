@@ -105,3 +105,20 @@ class ImageTestCase(TestCase):
     self.image.save_image()
     searched_image= Image.get_image_by_id(self.image.id)
     self.assertTrue(len(searched_image)==1)
+    
+  # Test search image by category
+  def test_search_image_by_category(self):
+    # Create and save a category instance for the test
+    self.new_category = Category(category = 'Travel')
+    self.new_category.save_category()
+    
+    # Create and save a location instance
+    self.new_location = Location(location_name = 'Aboretum', country = 'Kenya', region = 'East Africa')
+    self.new_location.save_location()
+    
+    # Create and save an image instance
+    self.image = Image(1, 'image location', 'hiking', 'hiking mount everest', self.new_location.id, self.new_category.id)
+    self.image.save()
+    
+    images_found_for_location = Image.search_by_category(self.image.category)
+    self.assertTrue(len(images_found_for_location)>0)
