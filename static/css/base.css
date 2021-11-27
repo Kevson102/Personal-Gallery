@@ -1,6 +1,16 @@
 h1{
+  font-weight: bold;
+}
+h2,h1{
   color: blue;
 }
-.all{
-  max-width: 250px;
+span{
+  color: red;
+}
+
+.display1{
+  box-sizing: border-box;
+  float: left;
+  width: 25%;
+  padding: 5px;
 }

@@ -3,12 +3,20 @@
 {%block content%}
 {{block.super}}
 
-<h1 class="text-center">INDEX PAGE WORKS</h1>
-{% for image in images%}
-<div class="all">
-  {{image.image_name}}
-  <img src="{{image.image.url}}" class="img-responsive all" alt="Picture">
+<div class="container">
+  <h1 class="text-center">Phoenix <span class="name">Gallery</span></h1>
+  <div class="col-md-7 ">
+    <h2 class="text-center">Entire Photo Collection</h2>
+    {% for image in images%}
+      <div class="text-center display1">
+        {{image.image_name}}
+        <img src="{{image.image.url}}" class="img-responsive" alt="Picture">
+      </div>
+    {% endfor %}
+  </div>
+  <div class="col-md-5">
+    <h2>display the larger image and descriptions here</h2>
+  </div>
 </div>
-{% endfor %}
 
 {%endblock%}
