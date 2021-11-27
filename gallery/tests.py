@@ -69,6 +69,17 @@ class ImageTestCase(TestCase):
     self.image = Image(1, 'image location', 'hiking', 'hiking mount everest', self.new_location.id, self.new_category.id)
     self.image.save()
     
+  def tearDown(self):
+    Category.objects.all().delete()
+    Location.objects.all().delete()
+    Image.objects.all().delete()
+    
   # Test instance
   def test_instance(self):
     self.assertTrue(isinstance(self.image, Image))
+  
+  # Test save image method
+  def test_save_image(self):
+    self.image.save_image()
+    images = Image.objects.all()
+    self.assertTrue(len(images)==1)
