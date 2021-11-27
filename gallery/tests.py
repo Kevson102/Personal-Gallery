@@ -53,3 +53,22 @@ class LocationTestCase(TestCase):
     self.new_location.delete_location()
     locations = Location.objects.all()
     self.assertTrue(len(locations)==0)
+    
+class ImageTestCase(TestCase):
+  # Set up method for the test case.
+  def setUp(self):
+    # Create and save a category instance for the test
+    self.new_category = Category(category = 'Travel')
+    self.new_category.save_category()
+    
+    # Create and save a location instance
+    self.new_location = Location(location_name = 'Aboretum', country = 'Kenya', region = 'East Africa')
+    self.new_location.save_location()
+    
+    # Create and save an image instance
+    self.image = Image(1, 'image location', 'hiking', 'hiking mount everest', self.new_location.id, self.new_category.id)
+    self.image.save()
+    
+  # Test instance
+  def test_instance(self):
+    self.assertTrue(isinstance(self.image, Image))

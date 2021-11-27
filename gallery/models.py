@@ -6,6 +6,9 @@ class Location(models.Model):
   country = models.CharField(max_length=20)
   region = models.CharField(max_length=20)
   
+  def __str__(self):
+    return self.location_name
+  
   # Save location method
   def save_location(self):
     self.save()
