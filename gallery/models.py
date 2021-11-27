@@ -10,6 +10,10 @@ class Location(models.Model):
   def save_location(self):
     self.save()
   
+  # Delete location method
+  def delete_location(self):
+    self.delete()
+  
 class Category(models.Model):
   category = models.CharField(max_length= 15)
   

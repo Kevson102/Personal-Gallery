@@ -46,3 +46,10 @@ class LocationTestCase(TestCase):
     self.new_location.save_location()
     locations = Location.objects.all()
     self.assertTrue(len(locations)==1)
+    
+  # Test Delete category method
+  def test_delete_method(self):
+    self.new_location.save_location()
+    self.new_location.delete_location()
+    locations = Location.objects.all()
+    self.assertTrue(len(locations)==0)
