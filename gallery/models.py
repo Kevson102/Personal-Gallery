@@ -62,5 +62,11 @@ class Image(models.Model):
   # Get all images
   @classmethod
   def get_all_images(cls):
-    saved_images = cls.objects.all()
-    return saved_images
+    all_images = cls.objects.all()
+    return all_images
+  
+  # Get image by id
+  @classmethod
+  def get_image_by_id(cls, id):
+    searched_image = Image.objects.filter(id = id).all()
+    return searched_image

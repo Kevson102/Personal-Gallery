@@ -100,3 +100,8 @@ class ImageTestCase(TestCase):
     saved_images = Image.get_all_images()
     self.assertTrue(len(saved_images)==2)
     
+  # Test search image by category
+  def test_get_image_by_id(self):
+    self.image.save_image()
+    searched_image= Image.get_image_by_id(self.image.id)
+    self.assertTrue(len(searched_image)==1)
