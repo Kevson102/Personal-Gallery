@@ -15,6 +15,10 @@ class Category(models.Model):
   # Save method
   def save_category(self):
     self.save()
+    
+  # Delete method
+  def delete_category(self):
+    self.delete()
   
 class Image(models.Model):
   image = models.ImageField(upload_to = 'static/images/', blank=True)
