@@ -90,3 +90,13 @@ class ImageTestCase(TestCase):
     self.image.delete_image()
     images = Image.objects.all()
     self.assertTrue(len(images)==0)
+    
+  
+  # Test get all images
+  def test_get_all_images(self):
+    self.image.save_image()
+    self.image2 = Image(43, 'image location', 'hiking', 'hiking mount everest', self.new_location.id, self.new_category.id)
+    self.image2.save_image()
+    saved_images = Image.get_all_images()
+    self.assertTrue(len(saved_images)==2)
+    
