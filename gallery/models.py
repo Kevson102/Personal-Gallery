@@ -82,3 +82,12 @@ class Image(models.Model):
   def filter_by_location(cls, location_search):
     found_images = cls.objects.filter(location = location_search)
     return found_images
+  
+  # Get photo url property
+  @property
+  def get_pic_url(self):
+    if self.image and hasattr(self.image, 'url'):
+      return self.image.url
+    else:
+      return "/static/images/no_image_to_show_.jpg"
+    
