@@ -40,3 +40,9 @@ class LocationTestCase(TestCase):
   # Test instace
   def test_instance(self):
     self.assertTrue(isinstance(self.new_location, Location))
+    
+  # Test Save category method
+  def test_save_method(self):
+    self.new_location.save_location()
+    locations = Location.objects.all()
+    self.assertTrue(len(locations)==1)

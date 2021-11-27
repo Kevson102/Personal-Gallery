@@ -6,13 +6,17 @@ class Location(models.Model):
   country = models.CharField(max_length=20)
   region = models.CharField(max_length=20)
   
+  # Save location method
+  def save_location(self):
+    self.save()
+  
 class Category(models.Model):
   category = models.CharField(max_length= 15)
   
   def __str__(self):
     return self.category
   
-  # Save method
+  # Save category method
   def save_category(self):
     self.save()
     
