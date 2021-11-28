@@ -8,9 +8,10 @@ span{
   color: red;
 }
 
-.display1{
+.display{
   box-sizing: border-box;
-  float: left;
-  width: 25%;
+  display: inline-block;
+  /* float: left; */
+  width: 24%;
   padding: 5px;
 }

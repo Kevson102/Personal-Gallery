@@ -1,0 +1,15 @@
+{% extends 'all-gallery/base.html' %}
+
+ {% block content %}
+    <div class="image col-md-6">
+        <img src="{{details.image.url}}" class="img-responsive" alt="Image" width="100%" style="padding: 4%;">
+    </div>
+    <div class="col-md-6">
+        <p style="margin-top: 30%;"><strong>Name:</strong> {{details.name}} </p>
+        <p><strong>Location:</strong> {{details.image_location}} </p>
+        <p><strong>Category:</strong> {{details.image_category}} </p>
+        <p><strong>Description:</strong> {{details.description}} </p>
+        <p><strong>Uploaded on</strong> {{details.pub_date}} </p>
+        <button type="button" class="btn btn-secondary" onclick="copy('img{{url}}')">Copy Link</button>
+    </div>
+ {% endblock %}

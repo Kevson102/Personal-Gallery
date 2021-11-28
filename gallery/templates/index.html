@@ -8,9 +8,11 @@
   <div class="col-md-7 ">
     <h2 class="text-center">Entire Photo Collection</h2>
     {% for image in images%}
-      <div class="text-center display1">
-        {{image.image_name}}
-        <img src="{{image.image.url}}" class="img-responsive" alt="Picture">
+      <div class="text-center display">
+        <a href="{%url 'image_details' photo_id=image.id%}">
+          {{image.image_name}}
+          <img src="{{image.image.url}}" class="img-responsive" alt="Picture">
+        </a>
       </div>
     {% endfor %}
   </div>
@@ -20,3 +22,4 @@
 </div>
 
 {%endblock%}
+<!-- url 'picture_detail' picture_id=image.id  -->
