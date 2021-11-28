@@ -15,6 +15,11 @@ def image_details(request, photo_id):
     raise Http404()
   return render(request, "detailedPic.html", {"details":pic_details})
 
+# def group_photos(request):
+#   images = Image.get_all_images()
+#   return render(request, 'byLocation.html',{"images":images})
+
+
 # Search pictures by category
 def search_photos(request):
   
@@ -31,4 +36,10 @@ def search_photos(request):
   else:
     message = "You have not yet make a search"
     return render(request, 'search-results.html', {"message":message})
+  
+#   # Show Photos by location
+# def group_photos(request, location):
+#   photos = Image.filter_by_location(location)
+#   return render(request, 'byLocation.html', {"photos":photos})
+#   pass
   

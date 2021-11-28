@@ -15,8 +15,10 @@
     {% if photos %}
       {%for photo in photos%}
         <div class="text-center display">
-          {{photo.image_name}}
-          <img src="{{photo.image.url}}" class="img-responsive" alt="Picture">
+          <a href="{%url 'image_details' photo_id=photo.id%}">
+            {{photo.image_name}}
+            <img src="{{photo.image.url}}" class="img-responsive" alt="Picture">
+          </a>
         </div>
       {%endfor%}
     {%endif%}

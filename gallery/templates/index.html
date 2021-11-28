@@ -4,9 +4,9 @@
 {{block.super}}
 
 <div class="container">
-  <h1 class="text-center">Phoenix <span class="name">Gallery</span></h1>
+  <h1 class="text-center title">Phoenix <span class="name">Gallery</span> <em>(Entire Photo Collection)</em></h1>
   <div class="">
-    <h2 class="text-center">Entire Photo Collection</h2>
+    <h2 class="text-center"></h2>
     {% for image in images%}
       <div class="text-center display">
         <a href="{%url 'image_details' photo_id=image.id%}">
