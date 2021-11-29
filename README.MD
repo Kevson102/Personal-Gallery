@@ -37,7 +37,9 @@ The user can:
 Open Terminal:
 
   $ git clone https://github.com/Kevson102/Personal-Gallery.git
+
   $ cd Personal-Gallery
+  
   $ code . or atom . based on your text editor 
   
 # Install all dependencies in requirements.txt
